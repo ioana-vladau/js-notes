@@ -9,6 +9,9 @@ const app = document.querySelector("#app");
 form.addEventListener("submit", (e)=>{
     e.preventDefault();
     // console.log(headerEl.value)
+    if(descriptionEl.value.length<1){
+        descriptionEl.value='-'
+    }
     database.ref("notes/").push({
         header: headerEl.value,
         description: descriptionEl.value
@@ -45,7 +48,7 @@ database.ref("notes/").on("child_added", snapshot=>{
             console.log(lastForm)
             database.ref("notes/"+theKey).set({
                 header: lastForm.querySelector("input").value,
-                description: lastForm.querySelector("textarea")
+                description: lastForm.querySelector("textarea").value
             });
             theArticle.querySelector("h1").textContent = lastForm.querySelector("input").value;
             theArticle.querySelector("div").textContent = lastForm.querySelector("textarea").value;
