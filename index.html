@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script>
+  // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCoH2Jb-bcn8-Kqpi-2d-nwm7NwXp_Arlw",
+        authDomain: "jsnotes-d4a1c.firebaseapp.com",
+        databaseURL: "https://jsnotes-d4a1c.firebaseio.com",
+        projectId: "jsnotes-d4a1c",
+        storageBucket: "jsnotes-d4a1c.appspot.com",
+        messagingSenderId: "688463614455"
+    };
+    firebase.initializeApp(config);
+</script>
+</head>
+<body>
+    <form action="">
+        <label>
+            Header:
+            <input type="text" name="header" id="form_header">
+        </label>
+        <label>
+            Description:
+            <textarea name="description" id="form_description" cols="30" rows="10"></textarea>
+        </label>
+        <input type="submit" value="Add to google">
+    </form>
+
+    <div id="app">
+        <template id="noteTemplate">
+            <article>
+                <h1></h1>
+                <div class="description"></div>
+            </article>
+        </template>    
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
